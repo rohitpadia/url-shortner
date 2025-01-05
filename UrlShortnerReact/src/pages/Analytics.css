@@ -1,0 +1,43 @@
+.analytics {
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.url-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.long-url-input {
+  flex: 1;  
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.copy-button {
+  margin: auto;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
