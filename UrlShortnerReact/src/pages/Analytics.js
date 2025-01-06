@@ -10,7 +10,7 @@ function Analytics() {
   const [analytics, setAnalytics] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [copySuccess, setCopySuccess] = useState('');
+  const [copySuccess] = useState('');
 
   const baseApiUrl = 'https://baseUrl';
 

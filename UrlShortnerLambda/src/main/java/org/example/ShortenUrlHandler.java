@@ -58,7 +58,7 @@ public class ShortenUrlHandler implements RequestHandler<APIGatewayProxyRequestE
             return buildResponse(400, new ErrorResponse("Invalid URL format"));
         }
         logger.log("INFO: Valid URL validation successful, generating short URL ...");
-        // Generate short URL with retry mechanism
+        // Generate short URL
         String shortUrl = HashGenerator.createHash(DynamoDBUtils.getHashLength());
 
         // Save to DynamoDB

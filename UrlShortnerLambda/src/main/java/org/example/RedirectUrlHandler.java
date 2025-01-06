@@ -29,20 +29,21 @@ public class RedirectUrlHandler implements RequestHandler<APIGatewayProxyRequest
 
         try {
             // Load URL from DynamoDB
+            logger.log("INFO: Searching dynamoDB with shortUrl...");
             var entity = DynamoDBUtils.getDynamoDbMapper().load(ShortenedUrlEntity.class, shortUrl);
             if (Objects.isNull(entity)) {
                 logger.log("ERROR: Short URL not found: " + shortUrl);
                 return buildErrorResponse(404, "URL not found");
             }
-
-            // Update access statistics asynchronously
+            logger.log("INFO: Result found for shortUrl, updating status in dynamoDb...");
+            // Update access statistics
             updateAccessStats(entity, logger);
 
             // Return redirect response
             return buildRedirectResponse(entity.getLongUrl());
 
         } catch (Exception e) {
-            logger.log("ERROR: Failed to process redirect - " + e.getMessage());
+            logger.log("ERROR: Failed to process redirect: " + e.getMessage());
             return buildErrorResponse(500, "Unexpected Error Occurred");
         }
     }
